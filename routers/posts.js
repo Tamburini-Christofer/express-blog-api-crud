@@ -2,7 +2,7 @@ const express = require("express");
 
 const router = express.Router();
 
-const postsController = require('../controllers/contoller');
+const postsController = require('../controllers/controller');
 
 //?INDEX
 router.get('/', postsController.index);
