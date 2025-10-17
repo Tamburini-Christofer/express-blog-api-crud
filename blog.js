@@ -9,25 +9,17 @@ const server = express();
 //todo Riferimento porta del server
 const PORT = 3000;
 
-const { router: postsRouter, posts } = require("./routers/posts.js");
+const postRouter = require("./routers/posts.js");
 
-//todo Middleware per parsing JSON (necessario per POST/PUT che leggono body)
-server.use(express.json());
+//todo Middleware
+server.use(express.static("public"));
 
-//todo Impostiamo la prima rotta, quella index
+//todo Impostiamo la prima rotta, quella home
 server.get("/", (req, res) => {
   res.send(`<h1>Server del mio blog</h1>`);
 });
 
-//todo Creo la rotta bacheca
-server.get("/bacheca", (req, res) => {
-    res.json({posts});
-});
-
-server.use("/posts", postsRouter);
-
-//todo Configuriamo gli asset statici sull’applicazione in modo che si possano visualizzare le immagini associate ad ogni post.
-server.use(express.static("public"));
+server.use("/posts", postRouter);
 
 //todo Avvio il server sulla porta 3000
 server.listen(PORT, () => {
