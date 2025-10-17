@@ -1,3 +1,9 @@
+//todo Importo Express
+const express = require ("express");
+
+//todo Definisco il router
+const router = express.Router();
+
 //todo Recuperiamo i posts
 const Post = require('../data/posts');
 
@@ -18,7 +24,7 @@ const show = (req, res) => {
 
 //?STORE
 const store = (req, res) => {
-
+    res.json("Creazione di un post")
 }
 
 //?UPDATE 
