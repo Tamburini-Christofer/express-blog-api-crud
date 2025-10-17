@@ -46,7 +46,7 @@ function destroy(req, res) {
 
     const post = posts.find(post => post.id === id);
 
-    if (!post) {
+    if (!post === -1) {
         res.status(404);
         return res.json({
             status: 404,
