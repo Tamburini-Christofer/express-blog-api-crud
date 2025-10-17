@@ -30,3 +30,16 @@ function show(req, res) {
     res.json(post);
 }
 
+function store(req, res) {
+    res.send('Creazione nuovo post');
+}
+
+function update(req, res) {
+    res.send('Modifica post' + req.params.id);
+}
+
+function modify(req, res) {
+    res.send('Modifica parziale post' + req.params.id);
+}
+
+
