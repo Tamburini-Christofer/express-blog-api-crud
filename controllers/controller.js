@@ -26,7 +26,7 @@ function show(req, res) {
 }
 
 function store(req, res) {
-  
+
   const newId = posts[posts.length - 1].id + 1;
 
   const { titolo, contenuto, immagine, tags } = req.body;
@@ -47,7 +47,18 @@ function store(req, res) {
 console.log(req.body);
 
 function update(req, res) {
-  res.send("Modifica post" + req.params.id);
+  const id = parseInt(req.params.id);
+
+  const post = posts.find(item => item.id === id);
+
+  post.titolo = req.body.titolo;
+  post.contenuto = req.body.contenuto;
+  post.immagine = req.body.immagine;
+  post.tags = req.body.tags;
+
+  res.send(post);
+
+  console.log(post);
 }
 
 function modify(req, res) {
