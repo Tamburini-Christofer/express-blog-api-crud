@@ -15,6 +15,9 @@ const postRouter = require("./routers/posts.js");
 //todo Middleware
 server.use(express.static("public"));
 
+//todo Creazione Body-parser
+server.use(express.json());
+
 //todo Impostiamo la prima rotta, quella home
 server.get("/", (req, res) => {
   res.send(`<h1>Server del mio blog</h1>`);
